@@ -71,10 +71,10 @@ export default {
     }
   },
   async created() {
-    var dateOffset = (24*60*60*1000) * 5; //5 days
+    var dateOffset = (24*60*60*1000) * 365;
     var myDate = new Date();
     myDate.setTime(myDate.getTime() - dateOffset);
-    this.start_date.value = myDate
+    this.startDate.value = myDate
     const response = await appAxios({ method: 'get', url: 'v1/purchase/purchase-data/' });
     if (response.status === 200) {
       this.chartOptionsBar.xAxis.data = response.data.month
