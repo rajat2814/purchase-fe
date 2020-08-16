@@ -9,7 +9,7 @@
       <vueye-datepicker class="child" v-model="endDate" color="#4466ee" format="dd/mm/yyyy"/>
     </div>
     <div class="parent">
-      <button class="button child" @click="filterData()">Button</button>
+      <button class="button child" @click="filterData()">Filter</button>
     </div>
     <chart :options="chartOptionsBar"></chart>
   </div>
