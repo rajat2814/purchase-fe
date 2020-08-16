@@ -28,11 +28,11 @@ export default {
   },
   data: () => ({
     startDate: {
-      value: new Date("2019-01-01"),
+      value: new Date(),
       formattedValue:''
     },
     endDate: {
-      value: new Date("2020-03-31"),
+      value: new Date(),
       formattedValue:''
     },
     chartOptionsBar: {
@@ -71,6 +71,10 @@ export default {
     }
   },
   async created() {
+    var dateOffset = (24*60*60*1000) * 5; //5 days
+    var myDate = new Date();
+    myDate.setTime(myDate.getTime() - dateOffset);
+    this.start_date.value = myDate
     const response = await appAxios({ method: 'get', url: 'v1/purchase/purchase-data/' });
     if (response.status === 200) {
       this.chartOptionsBar.xAxis.data = response.data.month
